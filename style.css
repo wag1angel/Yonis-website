@@ -1,0 +1,249 @@
+/* ===== Grundstil ===== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 16px 20px;
+  background: rgba(64, 101, 147);
+  color: #fff;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+header p {
+  margin: 0 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+/* Länkar */
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main */
+main {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #eee;
+  margin-top: 10px;
+}
+
+/* Skip-link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: rgba(64, 101, 147);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+/* ===== Hamburgermeny ===== */
+
+/* Dölj checkboxen */
+.nav-toggle {
+  display: none;
+}
+
+/* Hamburgarknappen */
+.nav-toggle-label {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 36px;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+/* Själva hamburger-ikonen */
+.hamburger {
+  display: block;
+  width: 22px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  position: relative;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.hamburger::before { top: -8px; }
+.hamburger::after  { top: 8px; }
+
+/* Animation till "X" när menyn är öppen */
+.nav-toggle:checked + .nav-toggle-label .hamburger {
+  background: transparent;
+}
+.nav-toggle:checked + .nav-toggle-label .hamburger::before {
+  transform: translateY(8px) rotate(45deg);
+}
+.nav-toggle:checked + .nav-toggle-label .hamburger::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Menyn (gömd från början på mobil) */
+.main-nav {
+  display: none;
+  background:rgba(64, 101, 147);
+  padding: 10px;
+}
+.main-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.main-nav__list a {
+  color: #fff;
+}
+
+/* När checkbox är ikryssad → visa menyn */
+.nav-toggle:checked ~ .main-nav {
+  display: block;
+}
+
+/* Menyn (gömd från början på mobil) */
+.main-nav {
+  display: none; /* <-- Håller menyn gömd som standard */
+  background: #rgba(64, 101, 147);
+  padding: 10px;
+}
+.main-nav__list {
+  /* ... */
+  display: flex;
+  flex-direction: column; /* <-- Listan är vertikal (staplad) */
+  gap: 0.5rem;
+}
+
+/* När checkbox är ikryssad → visa menyn */
+.nav-toggle:checked ~ .main-nav {
+  display: block; /* <-- Visar menyn när checkboxen är ikryssad */
+}
+
+.main-nav__list a {
+    color: #fff;
+  }
+
+@media (prefers-reduced-motion: reduce) {
+  /* Dessa regler gäller BARA om användaren bett om mindre rörelse */
+  .hamburger,
+  .hamburger::before,
+  .hamburger::after {
+    transition: none; 
+  }
+}
+
+/* ==================================== */
+/* === KRAV 3: MODERN ACCORDION STYLING (JOBBLISTA) === */
+/* ==================================== */
+
+.job-accordion {
+    margin-bottom: 8px;
+    background: #f0f0f0; 
+    border-radius: 6px; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+}
+
+/* Styla rubriken (summary) som knappen */
+.job-accordion summary {
+    cursor: pointer;
+    font-size: 1.05rem;
+    padding: 15px; 
+    list-style: none;
+    display: flex; 
+    align-items: center;
+}
+
+/* Hover-effekt på rubriken (summary) */
+.job-accordion summary:hover {
+    background: #e9e9e9; 
+    border-radius: 6px; 
+}
+
+/* Fixar tillgänglighet: Synlig fokusring */
+.job-accordion summary:focus-visible {
+    outline: 2px solid #406593; /* Din nya accentfärg */
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+/* Återskapa pilen med CSS (denna byter ut den fula standardpilen) */
+.job-accordion summary::before {
+    content: "▶"; 
+    color: #406593; /* Ger pilen din accentfärg */
+    margin-right: 12px;
+    font-size: 0.8rem;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+/* När sektionen är öppen, rotera pilen */
+.job-accordion[open] summary::before {
+    transform: rotate(90deg);
+}
+
+/* Styla innehållslistan */
+.job-details-list {
+    margin: 10px 0 0 45px; 
+    padding-bottom: 15px; 
+    list-style: disc;
+}
+
+
+/* ==================================== */
+/* === STYLING FÖR DISKRETA DATUM === */
+/* ==================================== */
+
+.job-date {
+    font-size: 0.9rem; 
+    color: #555; /* Mjukare, grå färg */
+    font-weight: normal; 
+    margin-left: 8px; 
+}

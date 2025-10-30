@@ -1,0 +1,145 @@
+<!DOCTYPE html> 
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Yonis Yusuf</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- SKIP-LINK-->
+  <a class="skip-link" href="#content">Hoppa till huvudinnehåll</a>
+
+  <header>
+    <h1>Yonis Yusuf</h1>
+
+    <!-- ===== Minimal, tillgänglig hamburgermeny (checkbox-hack) ===== -->
+    <!-- INPUT: checkbox som styr om menyn är öppen. Behåll tabbning (göm visuellt, inte display:none). -->
+    <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-label="Öppna eller stäng meny">
+    <!-- LABEL: agerar knapp för checkboxen. for kopplar till checkboxens id så klick/Enter/Space togglar. -->
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Öppna meny">
+      <!-- Dekorativt element som ritas som tre streck via CSS-pseudoelement eller här som en span -->
+      <span class="hamburger" aria-hidden="true"></span>
+    </label>
+
+    <!-- NAV: semantisk navigering. Använd lista för korrekt struktur och aria-current för aktiv länk -->
+    <nav class="main-nav" role="navigation" aria-label="Huvudmeny">
+      <ul class="main-nav__list">
+        <li><a href="index.html" aria-current="page">CV</a></li>
+        <li><a href="letter.html">Personligt brev</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- MAIN: huvudinnehållet. Ge det ett id för skip-link: id="content" -->
+  <main id="content">
+    <!-- SECTION: Profil. Rubriker ska följa en logisk ordning (h1, h2, h3...) -->
+    <section>
+      <h2>Profil</h2>
+      <p>Under utbildning till fullstackutvecklare med fokus på programmering och webbutveckling. Engagerad, kommunikativ och problemlösningsorienterad, med erfarenhet av teamarbete och teknisk support. Passionerad kring IT och digitala lösningar, och ständigt nyfiken på att utvecklas och bidra med nya idéer.</p>
+    </section>
+
+    <!-- SECTION: Arbetslivserfarenhet. -->
+   <section class="experience-list">
+      <h2>Arbetslivserfarenhet</h2>
+
+      <details class="job-accordion">
+        <summary>
+          <strong>Fryshuset - Trygghetsvärd</strong> 
+          <span class="job-date">(apr 2024 – nov 2024)</span>
+        </summary>
+        <ul class="job-details-list">
+            <li>Skapade en trygg miljö för ungdomar som trygghetsvärd på Fryshuset.</li>
+            <li>Var en närvarande vuxen och förebyggde konflikter.</li>
+            <li>Byggde relationer och samarbetade med skolor, fritidsgårdar och lokala föreningar för att ge ungdomarna stöd.</li>
+        </ul>
+      </details>
+      
+      <details class="job-accordion">
+        <summary>
+          <strong>Fryshuset IT avdelning (Praktik)</strong> 
+          <span class="job-date">(aug 2022 – jun 2023)</span>
+        </summary>
+        <ul class="job-details-list">
+            <li>Hantering av skolkonton och teknikrelaterade problem för elever.</li>
+            <li>Support inom system som Schoolsoft och Google Drive.</li>
+        </ul>
+      </details>
+
+      <details class="job-accordion">
+        <summary>
+          <strong>Matrix</strong> 
+          <span class="job-date">(jun 2022 – aug 2022)</span>
+        </summary>
+        <ul class="job-details-list">
+            <li>Hanterade kassaarbete, betalningar och returer, samt säkerställde korrekt kassaredovisning.</li>
+            <li>Assisterade kunder med produktfrågor och bidrog till en positiv kundupplevelse.</li>
+        </ul>
+      </details>
+      
+      <details class="job-accordion">
+        <summary>
+          <strong>IRepairofSweden</strong> 
+          <span class="job-date">(aug 2021 – jun 2022)</span>
+        </summary>
+        <ul class="job-details-list">
+            <li>Mottog och dokumenterade trasiga mobiler.</li>
+            <li>Identifierade skador och skickade vidare till reparationsavdelningen.</li>
+        </ul>
+      </details>
+      
+      <details class="job-accordion">
+        <summary>
+          <strong>Myrorna</strong> 
+          <span class="job-date">(apr 2019 – maj 2019)</span>
+        </summary>
+        <ul class="job-details-list">
+            <li>Sorterade och packade kläder för försäljning och distribution.</li>
+            <li>Bidrog till att hålla arbetsytor organiserade och effektiva.</li>
+        </ul>
+      </details>
+      
+      <details class="job-accordion">
+        <summary>
+          <strong>Rollers and Bowlers</strong> 
+          <span class="job-date">(apr 2018 – maj 2018)</span>
+        </summary>
+        <ul class="job-details-list">
+            <li>Ansvarade för kassatjänst och servering av mat till kunder.</li>
+            <li>Upprätthöll en trevlig atmosfär och gav god service i en snabbmatsmiljö.</li>
+        </ul>
+      </details>
+      
+      <details class="job-accordion">
+        <summary>
+          <strong>Jordbro Direkten</strong> 
+          <span class="job-date">(apr 2017 – maj 2017)</span>
+        </summary>
+        <ul class="job-details-list">
+            <li>Hanterade kassaarbete och hjälpte kunder med betalningar.</li>
+            <li>Assisterade med diverse arbetsuppgifter för att säkerställa en smidig butikdrift.</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- SECTION: Utbildning -->
+    <section>
+      <h2>Utbildning</h2>
+      <p><strong>El och Energi, dator & kommunikation</strong> – Fredrika Bremer, Handen (2021–2023)</p>
+    </section>
+
+    <!-- SECTION: Språk -->
+    <section>
+      <h2>Språk</h2>
+      <p>Svenska (flytande) • Engelska (bra) • Somaliska (modersmål)</p>
+    </section>
+
+  </main>
+  <!-- FOOTER: sidfot -->
+    <footer>
+    <p>© 2025 Yonis Yusuf</p>
+    <p>https://github.com/wag1angel</p>
+    <p>Yonis.Yusuf1@outlook.com</p>
+  </footer>
+</body>
+</html>
