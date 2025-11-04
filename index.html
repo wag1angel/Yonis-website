@@ -23,7 +23,7 @@
     </label>
 
     <!-- NAV: semantisk navigering. Använd lista för korrekt struktur och aria-current för aktiv länk -->
-    <nav class="main-nav" role="navigation" aria-label="Huvudmeny">
+    <nav class="main-nav"aria-label="Huvudmeny">
       <ul class="main-nav__list">
         <li><a href="index.html" aria-current="page">CV</a></li>
         <li><a href="letter.html">Personligt brev</a></li>
@@ -35,7 +35,6 @@
   <main id="content">
     <!-- SECTION: Profil. Rubriker ska följa en logisk ordning (h1, h2, h3...) -->
     <section>
-      <section>
       <h2>
         Profil
         <img 
@@ -45,7 +44,7 @@
                     assets/person-medium.webp 100w, 
                     assets/person-large.webp 200w" 
             sizes="(max-width: 600px) 50px, 100px" 
-            alt="Ikon som symboliserar personlig profil" 
+            alt="" 
             role="presentation"  
         >
       </h2>
@@ -63,7 +62,7 @@
                     assets/bag-medium.webp 100w, 
                     assets/bag-large.webp 200w" 
             sizes="(max-width: 600px) 50px, 100px" 
-            alt="Ikon som symboliserar arbetslivserfarenhet" 
+            alt="" 
             role="presentation"  
         >
       </h2>
@@ -163,8 +162,10 @@
   <!-- FOOTER: sidfot -->
     <footer>
     <p>© 2025 Yonis Yusuf</p>
-    <p>https://github.com/wag1angel</p>
-    <p>Yonis.Yusuf1@outlook.com</p>
+  <address>
+    <a href="https://github.com/wag1angel">GitHub</a><br>
+    <a href="mailto:Yonis.Yusuf1@outlook.com">Yonis.Yusuf1@outlook.com</a>
+  </address>
   </footer>
 </body>
 </html>
