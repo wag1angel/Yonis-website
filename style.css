@@ -1,3 +1,9 @@
+/* ===== CSS-VARIABLER ===== */
+:root {
+  --color-primary: #406593;
+  --spacing: 1rem;
+}
+
 /* ===== Grundstil ===== */
 body {
   font-family: Arial, sans-serif;
@@ -12,9 +18,9 @@ body {
 header {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--spacing);
   padding: 16px 20px;
-  background: rgba(64, 101, 147);
+  background: var(--color-primary);
   color: #fff;
   position: relative;
 }
@@ -25,7 +31,7 @@ header h1 {
 }
 
 header p {
-  margin: 0 0 0 1rem;
+  margin: 0 0 0 var(--spacing);
   font-size: 0.95rem;
 }
 
@@ -39,15 +45,15 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* Main */
+/* Main - ANVÄNDER CSS GRID (OBLIGATORISKT) */
 main {
+  display: grid;
+  gap: 2rem;
   max-width: 800px;
-  margin: 30px auto; /* Mer luft ovan och under */
+  margin: 30px auto;
   padding: 30px;
   background: white;
-  /* Mjukare, subtilare skugga */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
-  /* Mer markerade rundade hörn */
   border-radius: 12px; 
 }
 
@@ -65,11 +71,11 @@ footer {
   left: -9999px;
 }
 .skip-link:focus {
-  left: 1rem;
-  top: 1rem;
-  background: rgba(64, 101, 147);
+  left: var(--spacing);
+  top: var(--spacing);
+  background: var(--color-primary);
   color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem var(--spacing);
   border-radius: 4px;
   z-index: 1000;
 }
@@ -132,7 +138,7 @@ footer {
 /* Menyn (gömd från början på mobil) */
 .main-nav {
   display: none;
-  background:rgba(64, 101, 147);
+  background: var(--color-primary);
   padding: 10px;
 }
 .main-nav__list {
@@ -152,30 +158,7 @@ footer {
   display: block;
 }
 
-/* Menyn (gömd från början på mobil) */
-.main-nav {
-  display: none; /* <-- Håller menyn gömd som standard */
-  background: #rgba(64, 101, 147);
-  padding: 10px;
-}
-.main-nav__list {
-  /* ... */
-  display: flex;
-  flex-direction: column; /* <-- Listan är vertikal (staplad) */
-  gap: 0.5rem;
-}
-
-/* När checkbox är ikryssad → visa menyn */
-.nav-toggle:checked ~ .main-nav {
-  display: block; /* <-- Visar menyn när checkboxen är ikryssad */
-}
-
-.main-nav__list a {
-    color: #fff;
-  }
-
 @media (prefers-reduced-motion: reduce) {
-  /* Dessa regler gäller BARA om användaren bett om mindre rörelse */
   .hamburger,
   .hamburger::before,
   .hamburger::after {
@@ -184,76 +167,62 @@ footer {
 }
 
 /* ==================================== */
-/* === KRAV 3: MODERN, MINIMAL ACCORDION STYLING === */
+/* === ACCORDION STYLING === */
 /* ==================================== */
 
 .job-accordion {
-    /* Tar bort bakgrundsfärg och skugga för att göra den minimalistisk */
     background: transparent; 
     box-shadow: none;
     margin-bottom: 0;
     padding-top: 5px;
-    /* Använder en tunn linje i botten för separation, inte boxar */
     border-bottom: 1px solid #ddd; 
 }
 
-/* Sista jobbet ska inte ha linjen under sig */
 .job-accordion:last-of-type {
     border-bottom: none;
     margin-bottom: 20px;
 }
 
-
-/* Styla rubriken (summary) som knappen */
 .job-accordion summary {
     cursor: pointer;
     font-size: 1.05rem;
-    padding: 15px 0; /* Tar bort horisontell padding, ger luft */
+    padding: 15px 0;
     list-style: none;
     display: flex; 
     align-items: center;
-    /* Ger en mjuk övergång vid hover */
     transition: background-color 0.2s; 
     border-radius: 0;
 }
 
-/* Hover-effekt på rubriken (summary) */
 .job-accordion summary:hover {
-    /* Mycket subtil hover-färg */
     background: rgba(64, 101, 147, 0.05); 
     border-radius: 4px;
 }
 
-/* Fixar tillgänglighet: Synlig fokusring */
 .job-accordion summary:focus-visible {
-    outline: 2px solid #406593; 
+    outline: 2px solid var(--color-primary); 
     outline-offset: 3px;
     border-radius: 4px;
 }
 
-/* Återskapa pilen med CSS */
 .job-accordion summary::before {
     content: "▶"; 
-    color: #406593; /* Accentfärg */
+    color: var(--color-primary);
     margin-right: 12px;
     font-size: 0.8rem;
     transition: transform 0.2s;
     display: inline-block;
 }
 
-/* När sektionen är öppen, rotera pilen */
 .job-accordion[open] summary::before {
     transform: rotate(90deg);
 }
 
-/* Styla innehållslistan */
 .job-details-list {
-    margin: 10px 0 10px 45px; /* Skjuter in listan lite */
+    margin: 10px 0 10px 45px;
     padding: 0; 
     list-style: disc;
-}   cursor: pointer;
-  
-
+}
 
 /* ==================================== */
 /* === STYLING FÖR DISKRETA DATUM === */
@@ -261,31 +230,29 @@ footer {
 
 .job-date {
     font-size: 0.9rem; 
-    color: #555; /* Mjukare, grå färg */
+    color: #555;
     font-weight: normal; 
     margin-left: 8px; 
 }
 
 /* ==================================== */
-/* === STYLING FÖR IKONER (Krav 5) === */
+/* === STYLING FÖR IKONER === */
 /* ==================================== */
 .header-icon-marker {
-    height: 1.25em; /* Matchar textstorleken */
+    height: 1.25em;
     width: auto;
-    margin-left: 8px; /* Lite utrymme från texten */
-    vertical-align: middle; /* Centrerar ikonen vertikalt med texten */
+    margin-left: 8px;
+    vertical-align: middle;
 }
 
 /* ==================================== */
-/* === TILLGÄNGLIGHET: PREFERS-REDUCED-MOTION (Krav 4) === */
+/* === TILLGÄNGLIGHET: PREFERS-REDUCED-MOTION === */
 /* ==================================== */
 
-/* Diktat för att ta bort alla animationer och transitions */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
-        /* Viktigt: !important används här för att garantera att transitions stängs av */
         animation: none !important;
         transition: none !important;
     }
