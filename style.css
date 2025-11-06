@@ -257,3 +257,40 @@ footer {
         transition: none !important;
     }
 }
+
+/* ==================================== */
+/* === RESPONSIVITET: MEDIA QUERIES === */
+/* ==================================== */
+
+/* TABLET & STÖRRE (från 600px) */
+@media (min-width: 600px) {
+  /* Mer luftig layout på tablet */
+  main {
+    padding: 40px;
+    margin: 40px auto;
+  }
+  
+  /* Större typografi */
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* DESKTOP (från 1024px) */
+@media (min-width: 1024px) {
+  /* Ännu mer luftig layout på desktop */
+  main {
+    padding: 50px;
+    margin: 50px auto;
+  }
+  
+  /* Större typografi */
+  header h1 {
+    font-size: 1.75rem;
+  }
+  
+  /* Accordion med mer spacing */
+  .job-accordion summary {
+    padding: 20px 0;
+  }
+}
