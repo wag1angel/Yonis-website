@@ -13,16 +13,12 @@
   <header>
     <h1>Yonis Yusuf</h1>
 
-    <!-- ===== Minimal, tillgänglig hamburgermeny (checkbox-hack) ===== -->
-    <!-- INPUT: checkbox som styr om menyn är öppen. Behåll tabbning (göm visuellt, inte display:none). -->
+  
     <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-label="Öppna eller stäng meny">
-    <!-- LABEL: agerar knapp för checkboxen. for kopplar till checkboxens id så klick/Enter/Space togglar. -->
     <label for="nav-toggle" class="nav-toggle-label" aria-label="Öppna meny">
-      <!-- Dekorativt element som ritas som tre streck via CSS-pseudoelement eller här som en span -->
       <span class="hamburger" aria-hidden="true"></span>
     </label>
 
-    <!-- NAV: semantisk navigering. Använd lista för korrekt struktur och aria-current för aktiv länk -->
     <nav class="main-nav" aria-label="Huvudmeny">
       <ul class="main-nav__list">
         <li><a href="index.html" aria-current="page">CV</a></li>
@@ -31,9 +27,7 @@
       </ul>
     </nav>
   </header>
-  <!-- MAIN: huvudinnehållet. Ge det ett id för skip-link: id="content" -->
   <main id="content">
-    <!-- SECTION: Profil. Rubriker ska följa en logisk ordning (h1, h2, h3...) -->
     <section>
       <h2>
         Profil
@@ -52,7 +46,7 @@
       <p>Under utbildning till fullstackutvecklare med fokus på programmering och webbutveckling. Engagerad, kommunikativ och problemlösningsorienterad, med erfarenhet av teamarbete och teknisk support. Passionerad kring IT och digitala lösningar, och ständigt nyfiken på att utvecklas och bidra med nya idéer.</p>
     </section>
 
-    <!-- SECTION: Arbetslivserfarenhet. -->
+    <!-- Section: Arbetslivserfarenhet. -->
    <section class="experience-list">
       <h2>
         Arbetslivserfarenhet
@@ -148,20 +142,20 @@
       </details>
     </section>
 
-    <!-- SECTION: Utbildning -->
+    <!-- Section: Utbildning -->
     <section>
       <h2>Utbildning</h2>
       <p><strong>El och Energi, dator & kommunikation</strong> – Fredrika Bremer, Handen (2021–2023)</p>
     </section>
 
-    <!-- SECTION: Språk -->
+    <!-- Section: Språk -->
     <section>
       <h2>Språk</h2>
       <p>Svenska (flytande) • Engelska (bra) • Somaliska (modersmål)</p>
     </section>
 
   </main>
-  <!-- FOOTER: sidfot -->
+  <!-- Footer: sidfot -->
     <footer>
     <p>© 2025 Yonis Yusuf</p>
   <address>
