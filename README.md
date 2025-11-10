@@ -89,7 +89,7 @@ En responsiv CV-webbplats byggd med semantisk HTML5 och modern CSS3, helt utan J
 - Skapade tydlig `:focus-visible` styling
 - Implementerade `prefers-reduced-motion` för användare som inte vill ha animationer
 
-**Svårighet**: Att testa med tangentbord och förstå vad som faktiskt syns för skärmläsare. Jag testade med NVDA och upptäckte flera saker som inte funkade först.
+**Svårighet**: Att testa med tangentbord och förstå vad som faktiskt syns för skärmläsare
 
 ## ✨ Designbeslut
 
