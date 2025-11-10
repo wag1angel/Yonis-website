@@ -158,13 +158,6 @@ footer {
   display: block;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .hamburger,
-  .hamburger::before,
-  .hamburger::after {
-    transition: none; 
-  }
-}
 
  /* Accordion styling */
 
