@@ -50,8 +50,6 @@ En responsiv CV-webbplats byggd med semantisk HTML5 och modern CSS3, helt utan J
 }
 ```
 
-**Svårighet**: Att få hamburger-ikonen att animera till ett "X" krävde rätt positioning av pseudo-element (::before och ::after). Mycket trial-and-error med transform och rotation!
-
 ### Utmaning 2: Accordion för arbetslivserfarenhet
 **Problem**: Mitt PDF-CV hade alla jobb listade, men det blev för långt och rörigt på webbsidan.
 
