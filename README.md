@@ -122,7 +122,7 @@ En responsiv CV-webbplats byggd med semantisk HTML5 och modern CSS3, helt utan J
 **Motivering**: Enkel, tydlig typografi som prioriterar läsbarhet framför dekorativitet. Passar perfekt för ett CV där innehållet är viktigast.
 
 ### Layout
-- **Mobil-först strategi**: Designen börjar från mobil och byggs upp
+- **Desktop-först strategi**:Jag påbörjade projektet desktop-först. Då webbplatsens layout var relativt enkel, kunde jag dock smidigt upprätthålla god responsivitet för både mobil och desktop utan större problem."
 - **Max-width på main**: 800px för optimal läslängd
 - **Spacing**: Konsekvent padding och margin
 - **Border-radius**: 12px på main för modern look
@@ -212,8 +212,9 @@ En responsiv CV-webbplats byggd med semantisk HTML5 och modern CSS3, helt utan J
 ## 📱 Responsivitet
 
 ### Brytpunkter:
-- **Mobil**: < 768px - Hamburgermeny visas, vertikal layout
-- **Desktop**: ≥ 768px - Mer luftigt spacing, samma hamburgermeny (kan förbättras)
+- **Alla skärmstorlekar** - Hamburgermeny visas på både mobil och desktop
+- **Responsivitet** - `main` anpassar sig automatiskt med max-width: 800px
+- **Media query** - Endast för `prefers-reduced-motion` (tillgänglighet)
 
 ### Responsive bilder:
 - Använder `srcset` och `sizes` för optimal bildladdning
