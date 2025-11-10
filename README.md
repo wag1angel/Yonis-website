@@ -289,9 +289,7 @@ Webbplatsen är publicerad på GitHub Pages:
 
 ### Vad som överraskade mig:
 - **Att få hamburger-ikonen att animera till "X"** - Det tog mig flera försök att förstå hur `transform` och `rotate` fungerar tillsammans. Jag hade fel värden först och ikonen roterade åt fel håll!
-- **Hur exakt `old_str` måste vara i CSS** - När jag skulle ersätta kod upptäckte jag att även ett extra mellanslag gör att det inte fungerar. CSS är mycket känsligt för whitespace på vissa ställen.
-- **Hur mycket skillnad en subtil box-shadow gör** - Utan skugga såg main-boxen platt ut. Med en mjuk skugga blev det direkt mer professionellt och "lyft" från sidan.
-
+- 
 ### Vad jag skulle göra annorlunda:
 - Planera CSS-strukturen bättre från start (BEM-naming)
 - Använda CSS-variabler från början
