@@ -2,6 +2,8 @@
 
 ## 💡 Inspiration & Bakgrund
 
+https://wag1angel.github.io/Yonis-website/
+
 Detta projekt började med mitt fysiska CV i PDF-format som jag använt för jobbansökningar. Jag insåg att ett digitalt CV skulle vara mycket mer lättillgängligt - något jag enkelt kan dela via en länk istället för att skicka filer. Det kändes också som en perfekt möjlighet att visa mina tekniska färdigheter direkt genom själva CV:t.
 
 ![Det ursprungliga PDF-CVt som inspirerade webbplatsen](CV-Yonis-Yusuf.pdf)
