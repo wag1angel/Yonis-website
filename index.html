@@ -63,83 +63,27 @@
         >
       </h2>
 
-      <details class="job-accordion">
-        <summary>
-          <strong>Fryshuset - Trygghetsvärd</strong> 
-          <span class="job-date">(apr 2024 – maj 2025)</span>
-        </summary>
-        <ul class="job-details-list">
-            <li>Skapade en trygg miljö för ungdomar som trygghetsvärd på Fryshuset.</li>
-            <li>Var en närvarande vuxen och förebyggde konflikter.</li>
-            <li>Byggde relationer och samarbetade med skolor, fritidsgårdar och lokala föreningar för att ge ungdomarna stöd.</li>
-        </ul>
-      </details>
-      
-      <details class="job-accordion">
-        <summary>
-          <strong>Fryshuset IT avdelning (Praktik)</strong> 
-          <span class="job-date">(aug 2022 – jun 2023)</span>
-        </summary>
-        <ul class="job-details-list">
-            <li>Hantering av skolkonton och teknikrelaterade problem för elever.</li>
-            <li>Support inom system som Schoolsoft och Google Drive.</li>
-        </ul>
-      </details>
+      <!-- Filter och Sortera -->
+      <div class="filter-section">
+        <div class="filter-buttons">
+          <span>Filtrera:</span>
+          <button class="filter-btn active" data-filter="all">Alla</button>
+          <button class="filter-btn" data-filter="2026">2026</button>
+          <button class="filter-btn" data-filter="2025">2025</button>
+          <button class="filter-btn" data-filter="2024">2024</button>
+        </div>
+        <div class="sort-section">
+          <label for="sort-select">Sortera:</label>
+          <select id="sort-select">
+            <option value="newest">Nyast först</option>
+            <option value="oldest">Äldst först</option>
+            <option value="alphabetical">A – Ö</option>
+          </select>
+        </div>
+      </div>
 
-      <details class="job-accordion">
-        <summary>
-          <strong>Matrix</strong> 
-          <span class="job-date">(jun 2022 – aug 2022)</span>
-        </summary>
-        <ul class="job-details-list">
-            <li>Hanterade kassaarbete, betalningar och returer, samt säkerställde korrekt kassaredovisning.</li>
-            <li>Assisterade kunder med produktfrågor och bidrog till en positiv kundupplevelse.</li>
-        </ul>
-      </details>
-      
-      <details class="job-accordion">
-        <summary>
-          <strong>IRepairofSweden</strong> 
-          <span class="job-date">(aug 2021 – jun 2022)</span>
-        </summary>
-        <ul class="job-details-list">
-            <li>Mottog och dokumenterade trasiga mobiler.</li>
-            <li>Identifierade skador och skickade vidare till reparationsavdelningen.</li>
-        </ul>
-      </details>
-      
-      <details class="job-accordion">
-        <summary>
-          <strong>Myrorna</strong> 
-          <span class="job-date">(apr 2019 – maj 2019)</span>
-        </summary>
-        <ul class="job-details-list">
-            <li>Sorterade och packade kläder för försäljning och distribution.</li>
-            <li>Bidrog till att hålla arbetsytor organiserade och effektiva.</li>
-        </ul>
-      </details>
-      
-      <details class="job-accordion">
-        <summary>
-          <strong>Rollers and Bowlers</strong> 
-          <span class="job-date">(apr 2018 – maj 2018)</span>
-        </summary>
-        <ul class="job-details-list">
-            <li>Ansvarade för kassatjänst och servering av mat till kunder.</li>
-            <li>Upprätthöll en trevlig atmosfär och gav god service i en snabbmatsmiljö.</li>
-        </ul>
-      </details>
-      
-      <details class="job-accordion">
-        <summary>
-          <strong>Jordbro Direkten</strong> 
-          <span class="job-date">(apr 2017 – maj 2017)</span>
-        </summary>
-        <ul class="job-details-list">
-            <li>Hanterade kassaarbete och hjälpte kunder med betalningar.</li>
-            <li>Assisterade med diverse arbetsuppgifter för att säkerställa en smidig butikdrift.</li>
-        </ul>
-      </details>
+      <!-- Jobs Container - JavaScript fyller detta -->
+      <div id="jobs-container"></div>
     </section>
 
     <!-- Section: Utbildning -->
@@ -163,5 +107,6 @@
     <a href="mailto:Yonis.Yusuf1@outlook.com">Yonis.Yusuf1@outlook.com</a>
   </address>
   </footer>
+  <script src="main.js"></script>
 </body>
 </html>
