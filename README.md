@@ -70,7 +70,7 @@ En responsiv CV-webbplats med **interaktiv JavaScript-funktionalitet**. Webbplat
 - Responsiv design
 - Flexbox och Grid
 - CSS-variabler
-- Hamburge rmeny (checkbox-hack)
+- Hamburger meny (checkbox-hack)
 - Reduced motion support
 
 ### JavaScript (ES5)
