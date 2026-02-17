@@ -1,5 +1,5 @@
 // ===== JOBB DATA =====
-// Här har jag alla mina jobb i en lista
+// Alla mina jobb i en lista
 const jobs = [
   {
     company: "Fryshuset",
@@ -90,65 +90,67 @@ const jobs = [
 
 // ===== CV-SIDAN (index.html) =====
 function initIndex() {
-  // Hitta element jag behöver
+  // Hitta element på sidan
   const jobsContainer = document.querySelector('#jobs-container');
   const filterButtons = document.querySelectorAll('.filter-btn');
   const sortSelect = document.querySelector('#sort-select');
   
-  // Om jag inte är på CV-sidan, hoppa över resten
+  // Om inte på CV-sidan, sluta här
   if (!jobsContainer) return;
   
-  // Hämta vad användaren valde förra gången
+  // Hämta vad användaren valde förra gången från localStorage
   let savedFilter = localStorage.getItem('userFilter');
   if (!savedFilter) {
-    savedFilter = 'all'; // Om inget sparat, använd "Alla"
+    savedFilter = 'all'; // första gången = visa alla
   }
   
   let savedSort = localStorage.getItem('userSort');
   if (!savedSort) {
-    savedSort = 'newest'; // Om inget sparat, använd "Nyast först"
+    savedSort = 'newest'; // första gången = nyast först
   }
   
-  // Vilket filter och sortering som är aktivt nu
+  // spara valen i variabler som kan ändras
   let currentFilter = savedFilter;
   let currentSort = savedSort;
   
-  // Funktion som visar jobben på sidan
+  // Huvudfunktionen som visar jobben
   function renderJobs() {
     const jobsArray = jobs;
     
-    // Filtrera jobben baserat på år
+    // FILTRERA - visa bara jobb som matchar året
     let filteredJobs = jobsArray.filter(function(job) {
-      // Om "Alla" är valt, visa alla jobb
+      // om "Alla" valt, visa allt
       if (currentFilter === 'all') {
         return true;
       }
       
-      // Gör om filter till nummer (t.ex. "2024" blir 2024)
+      // gör "2024" (text) till 2024 (nummer)
       const filterYear = parseInt(currentFilter);
       
-      // Kolla om det är ett giltigt nummer
+      // kolla om det blev ett nummer
       if (!isNaN(filterYear)) {
-        // Visa jobbet om det pågick under detta år
+        // visa jobb som pågick under detta år
+        // exempel: Fryshuset (2024-2025) pågick 2024? Ja!
         return job.fromYear <= filterYear && job.toYear >= filterYear;
       }
       
       return true;
     });
     
-    // Sortera jobben
+    // SORTERA - ordna jobben
+    // slice() kopierar först så original inte ändras
     filteredJobs = filteredJobs.slice().sort(function(a, b) {
-      // Nyast först
+      // Nyast först (b - a = större tal först)
       if (currentSort === 'newest') {
         return b.toYear - a.toYear;
       }
       
-      // Äldst först
+      // äldst först (a - b = mindre tal först)
       if (currentSort === 'oldest') {
         return a.fromYear - b.fromYear;
       }
       
-      // A-Ö
+      // A-Ö (svenska alfabetet)
       if (currentSort === 'alphabetical') {
         return a.company.localeCompare(b.company, 'sv');
       }
@@ -156,10 +158,10 @@ function initIndex() {
       return 0;
     });
     
-    // Ta bort alla jobb från sidan
+    // töm sidan först så jobben inte staplas
     jobsContainer.innerHTML = '';
     
-    // Om inga jobb matchar filtret
+    // om inga jobb matchar, visa meddelande
     if (filteredJobs.length === 0) {
       const noJobs = document.createElement('p');
       noJobs.className = 'no-jobs';
@@ -168,131 +170,134 @@ function initIndex() {
       return;
     }
     
-    // Skapa HTML för varje jobb
+    // skapa HTML för varje jobb
     filteredJobs.forEach(function(job) {
-      // Skapa accordion-elementet
+      // skapa accordion (details-tagg)
       const details = document.createElement('details');
       details.className = 'job-accordion';
       
-      // Skapa rubriken
+      // skapa rubriken (summary-tagg)
       const summary = document.createElement('summary');
       
-      // Lägg till roll om jobbet har en
+      // lägg till roll om jobbet har en
       let roleText;
       if (job.role) {
-        roleText = ' - ' + job.role;
+        roleText = ' - ' + job.role; // t.ex. " - Trygghetsvärd"
       } else {
-        roleText = '';
+        roleText = ''; // inget för Matrix
       }
       
-      // Bygg HTML för rubriken
+      // sätt ihop företagsnamn + roll med HTML
       const companyStrong = '<strong>' + job.company + roleText + '</strong>';
       const dateSpan = '<span class="job-date">(' + job.from + ' – ' + job.to + ')</span>';
       summary.innerHTML = companyStrong + ' ' + dateSpan;
       
-      // Skapa listan med arbetsuppgifter
+      // skapa lista för arbetsuppgifter
       const ul = document.createElement('ul');
       ul.className = 'job-details-list';
       
-      // För varje uppgift, skapa ett li-element
+      // för varje uppgift, skapa li-element
       job.tasks.forEach(function(task) {
         const li = document.createElement('li');
         li.textContent = task;
-        ul.appendChild(li);
+        ul.appendChild(li); // lägg li i ul
       });
       
-      // Sätt ihop allt
-      details.appendChild(summary); // Lägg rubriken i accordion
-      details.appendChild(ul);      // Lägg listan i accordion
-      jobsContainer.appendChild(details); // Lägg accordion på sidan
+      // sätt ihop allt
+      details.appendChild(summary); // rubrik i accordion
+      details.appendChild(ul);      // lista i accordion
+      jobsContainer.appendChild(details); // accordion på sidan
     });
   }
   
-  // Lyssna på klick på filter-knapparna
+  // FILTER-KNAPPAR
   filterButtons.forEach(function(btn) {
-    // Gör den sparade knappen aktiv från början
+    // Gör rätt knapp aktiv från början
     if (btn.getAttribute('data-filter') === currentFilter) {
       btn.classList.add('active');
     }
     
-    // När någon klickar på en knapp
+    // lyssna på klick
     btn.addEventListener('click', function() {
-      // Ta bort blå färg från alla knappar
+      // ta bort aktiv från alla knappar
       filterButtons.forEach(function(b) {
         b.classList.remove('active');
       });
       
-      // Gör den klickade knappen blå
+      // gör klickad knapp aktiv
       btn.classList.add('active');
       
-      // Uppdatera filtret
+      // spara vilket filter som klickades
       currentFilter = btn.getAttribute('data-filter');
       
-      // Spara valet
+      // kom ihåg valet
       localStorage.setItem('userFilter', currentFilter);
       
-      // Visa jobben igen med nytt filter
+      // visa jobben igen med nytt filter
       renderJobs();
     });
   });
   
-  // Lyssna på dropdown för sortering
-  sortSelect.value = currentSort; // Sätt till sparat värde
-  
+  // SORTERING
+  // visa vad användaren valde förra gången
+  sortSelect.value = currentSort;
+
+  // när användaren ändrar val i dropdown
   sortSelect.addEventListener('change', function(e) {
-    // Uppdatera sorteringen
+    // ta det nya valet
     currentSort = e.target.value;
-    
-    // Spara valet
+  
+    // kom ihåg valet
     localStorage.setItem('userSort', currentSort);
-    
-    // Visa jobben igen med ny sortering
+  
+    // visa jobben med ny sortering
     renderJobs();
   });
   
-  // Visa jobben första gången
+  // visa jobben första gången
   renderJobs();
 }
 
 // ===== BETYG-FORMULÄR (letter.html) =====
 function initRating() {
-  // Hitta formuläret och success-meddelandet
+  // hitta formulär och success-meddelande
   const ratingForm = document.querySelector('#rating-form');
   const ratingSuccess = document.querySelector('#rating-success');
   
-  // Om jag inte är på letter.html, hoppa över
+  // om inte på letter.html, sluta här
   if (!ratingForm) return;
   
-  // När användaren skickar formuläret
+  // när användaren klickar "Skicka betyg"
   ratingForm.addEventListener('submit', function(e) {
-    // Stoppa sidladdning
+    // stoppa sidladdning (annars försvinner allt)
     e.preventDefault();
     
-    // Hämta valt betyg
+    // hämta valt betyg från dropdown
     const stars = document.querySelector('#rating-stars').value;
     const errorElement = document.querySelector('#error-rating');
     
-    // Kolla om användaren valde betyg
+    // kolla om användaren glömde välja
+    // !stars betyder "om INTE stars "
     if (!stars) {
       errorElement.textContent = 'Du måste välja ett betyg.';
-      return;
+      return; // sluta här, kör inte resten
     }
     
-    // Allt ok! Visa success-meddelande
-    errorElement.textContent = ''; // Rensa felmeddelande
-    ratingForm.classList.add('hidden'); // Dölj formuläret
+    // Allt ok! Visa success
+    errorElement.textContent = ''; // rensa röd feltext
+    ratingForm.classList.add('hidden'); // dölj formuläret (display: none)
     
-    // Bygg success-meddelande
+    // sätt ihop meddelande med HTML
     const successMessage = '<p>✅ Tack för ditt betyg: ' + stars + '/5 stjärnor!</p>';
     ratingSuccess.innerHTML = successMessage;
     
-    ratingSuccess.classList.remove('hidden'); // Visa meddelandet
+    ratingSuccess.classList.remove('hidden'); // visa meddelandet
   });
 }
 
 // ===== STARTA ALLT =====
-// Kör när sidan är klar
+// vänta tills HTML är laddat, sen kör
 document.addEventListener('DOMContentLoaded', function() {
-  initIndex();   // Starta CV-sidan
-  initRating();  // Starta betyg-formulär
+  initIndex();   // starta filter/sortering/visa jobb
+  initRating();  // starta betygsformulär
 });
